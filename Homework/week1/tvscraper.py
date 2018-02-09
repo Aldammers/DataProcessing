@@ -33,7 +33,10 @@ def extract_tvseries(dom):
     
     # create empty list for info of series
     series = [] 
-	
+    
+    # select all top rated series necessary information
+    tvseries = dom.find_all('div', class_ = 'lister-item-content')
+    
     # iterate through list of series
     for serie in tvseries:
 	
@@ -41,26 +44,31 @@ def extract_tvseries(dom):
         serie_input = []
         
         # scrape the title of the serie
-	title = serie.h3.a.text
-	titles.append(title)
+        titles = []
+        title = serie.h3.a.text
+        titles.append(title)
 			
         # scrape rating of the serie
-	rating = float(serie.strong.text)
-	ratings.append(rating)
+        ratings = []
+        rating = float(serie.strong.text)
+        ratings.append(rating)
         
         # scrape the genres of the series
+        genres = []
         genre = serie.p.find("span", class_ = "genre").text
         genres.append(genre)
 		
         # scrape actors and actresses from series
+        stars = []
         star = serie.find("p", "a").attrs['Stars'].split(',')       
         stars.append(star)
         
         #scrape the runtime
-	runtime = serie.find("span", class_= "runtime").text
+        runtimes = []
+        runtime = serie.find("span", class_= "runtime").text
         runtimes.append(runtime)
 		
-	    # extend info to single serie list
+	# extend info to single serie list
         serie_input.extend([titles, ratings, genres, stars, runtimes])
         
         # append all info in all series list
