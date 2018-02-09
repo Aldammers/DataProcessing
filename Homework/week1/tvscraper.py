@@ -41,12 +41,12 @@ def extract_tvseries(dom):
         serie_input = []
         
         # scrape the title of the serie
-	    title = serie.h3.a.text
-	    titles.append(title)
+	title = serie.h3.a.text
+	titles.append(title)
 			
         # scrape rating of the serie
-	    rating = float(serie.strong.text)
-	    ratings.append(rating)
+	rating = float(serie.strong.text)
+	ratings.append(rating)
         
         # scrape the genres of the series
         genre = serie.p.find("span", class_ = "genre").text
@@ -57,7 +57,7 @@ def extract_tvseries(dom):
         stars.append(star)
         
         #scrape the runtime
-	    runtime = serie.find("span", class_= "runtime").text
+	runtime = serie.find("span", class_= "runtime").text
         runtimes.append(runtime)
 		
 	    # extend info to single serie list
