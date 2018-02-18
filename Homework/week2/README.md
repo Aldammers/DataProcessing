@@ -1,1 +1,1 @@
-wesite: https://aldammers.github.io/DataProcessing/
+website: https://aldammers.github.io/DataProcessing/
