@@ -1,0 +1,156 @@
+<!--
+Data progressing
+Alexander Dammers
+10528415
+Creates a graph of weather data in txt form
+-->
+
+
+<!doctype html>
+	    <header>
+            <h1>Temperatuursverloop 2017</h1>
+            <h2>Locatie De Bilt</h2>
+            <h3> Source: <a href="http://projects.knmi.nl/klimatologie/daggegevens/selectie.cgi">KNMI</a></h3>
+    </header>
+<canvas id="myCanvas" width="800" height="350"> </canvas>
+
+
+<script>
+
+	// create a canvas
+	var canvas = document.getElementById('myCanvas');
+	var ctx = canvas.getContext('2d');
+
+    // get the data from the txt file
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+        
+		responseText = this.responseText;
+		callback(responseText);
+		}
+	};
+	xhttp.open("GET", "KNMI_20171231test1.txt", true);
+	xhttp.send();
+    
+    
+    
+	// create callback function to run script whenever called
+	function callback(responseText) {
+    
+        // splits date data every line
+		var data_split = responseText.split("\n");
+        
+        // console.log(data_split)
+		// create lists
+		var dates = []; 
+        var xvalues = []; 
+        var temperatures = [];
+        
+        // length list of dates
+        var d = data_split.length;
+        
+		// iterate over all the dates in the list
+		for (var i = 0; i < d - 1; i++) {
+        
+			// create in form Year-Month-Day
+            var date = data_split[i].slice(0, 8);
+            var dateString = date.slice(0,4) + "-" + date.slice(4, 6) + "-" + date.slice(6, 8);
+            console.log(dateString)
+           
+			// transform date data
+			var date_final = new Date(dateString);
+           // console.log(date_final)
+           
+           
+			// Date appended to list dates
+			dates.push(date_final);
+            //  console.log(dates)
+          
+			// transform time to millisec
+            var time = date_final.getTime();
+            
+            // append time in list xvalues
+			xvalues.push(time);
+            
+			// append temperature in numbers in list temperatures
+            var tempr = Number(data_split[i].substring(9, 14));
+			temperatures.push(tempr);
+		}
+        
+function createTransform(domain, range){
+        // domain is a two-element array of the data bounds [domain_min, domain_max]
+        // range is a two-element array of the screen bounds [range_min, range_max]
+        // this gives you two equations to solve:
+        // range_min = alpha * domain_min + beta
+        // range_max = alpha * domain_max + beta
+ 		// a solution would be:
+
+        var domain_min = domain[0]
+        var domain_max = domain[1]
+        var range_min = range[0]
+        var range_max = range[1]
+
+        // formulas to calculate the alpha and the beta
+        var alpha = (range_max - range_min) / (domain_max - domain_min)
+        var beta = range_max - alpha * domain_max
+
+        // returns the function for the linear transformation (y= a * x + b)
+        return function(x){
+            return alpha * x + beta;
+        }
+    }
+
+        
+        // create lists with data to use for transformation of data for use on canvas
+        var max_date = dates[dates.length -1];
+        var min_date = dates[0];
+        var min_tempr = Math.min.apply(null, temperatures);
+        var max_tempr = Math.max.apply(null, temperatures);
+        var height = canvas.height;
+        var width = canvas.width;
+    
+        // create linear functions for transformation of data for use on canvas
+        var y_line = createTransform([min_tempr, max_tempr], [0, height]);
+        var x_line = createTransform([min_date, max_date], [0, width]);
+        
+        
+		// start path for graph
+		ctx.beginPath();
+        ctx.lineWidth = 2;
+        
+       // ctx.moveTo(x_line(xvalues[min_date]), y_line(temperatures[min_tempr]));
+        
+        // create var for lenght of axxis
+        var j = dates.length 
+        
+        // iterate over every date (365)
+		for (var i = 0; i < j - 1; i++) {
+			
+            // create point on canvas to draw line through
+            var xvalue = x_line(xvalues[i]); 
+            
+			// Flip temprature data and create point to draw line through
+			var temp = height - y_line(temperatures[i]);
+            
+			// make line to next point
+			ctx.lineTo(xvalue, temp);
+		}  
+        ctx.stroke();
+        
+        // create x-axis
+        ctx.beginPath();
+        ctxlinewidth = 2;
+        ctx.moveTo(0, 350);
+        ctx.lineTo(width, 350);
+        ctx.stroke();
+        
+        // create y-axis
+        ctx.beginPath();
+        ctxlinewidth = 2;
+        ctx.moveTo(0, 350);
+        ctx.lineTo(0, 25);
+        ctx.stroke();
+	}
+</script>
+</html>
