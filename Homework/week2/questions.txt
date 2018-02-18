@@ -1,0 +1,15 @@
+1. Explain the difference between the == operator and the === operator.
+2. Explain what a closure is. (Note that JavaScript programs use closures very often.)
+3. Explain what higher order functions are.
+4. Explain what a query selector is and give an example line of JavaScript that uses a query selector.
+
+1. bij === houdt de operator zich aan de opgegeven typ def. 
+En bij == wordt de type def door de operator zelf geinterpreteerd.
+
+2. Waar een locale variabel eindigt.
+
+3. Functies die opereren op andere functies, waarbij ze de functies accepteren als argumenten of ze returnen.
+
+4. Returns HTML elements uit een CSS file gebasseerd op id, class, types, attributes
+voorbeeld: 
+document.querySelector("h2, h3").style.backgroundColor = "blue";
