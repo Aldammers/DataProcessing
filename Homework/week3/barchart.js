@@ -35,10 +35,12 @@ var yAxis = d3.svg.axis()
     .ticks(10, "%");
     
     
-//d3.json(Faillissementen_jan2018.json, function(error, data) {
- //   console.log(data);
-d3.json("faillissementen.json", function(error, data) {
-  if(error) console.log("Can not load data");
+d3.json(Faillissementen.json, function(error, data) {console.log(data);
+
+
+
+//d3.json("faillissementen.json", function(error, data) {
+ // if(error) console.log("Can not load data");
 
 
 // range scaling of data
