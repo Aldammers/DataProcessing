@@ -1,0 +1,7 @@
+1. By using d3.select(element). SelectALL effects all elements matching the selector, while select selects only the first element.
+2. First one is selected data. Second 'd'is a Array of data and 'i' is the index of the data array
+3.  d3.select("body').append("div").class("barChart1")
+    d3.select("body').append("svg").class("barChart2").attr("width",width).attr("height",width)
+4. create new element, update element, add extra data to element, remove data from element
+5. Pixel versus Vector based drawing of the chart.
+6. svg for all bars, g per seperate bar, rect per seperate bar and text to seperate axiss and bars.
