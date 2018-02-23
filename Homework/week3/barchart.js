@@ -1,4 +1,3 @@
-
 // set area for barcharts
 var margin = {top: 50, right: 35, bottom: 100, left: 50},
     width = 800 - margin.left - margin.right,
@@ -36,14 +35,15 @@ var yAxis = d3.svg.axis()
     .ticks(10, "%");
     
     
-d3.json(Faillissementen_jan2018.json, function(error, data) {
-    console.log(data);
-
+//d3.json(Faillissementen_jan2018.json, function(error, data) {
+ //   console.log(data);
+d3.csv("data/faillissement.csv", function(error, data) {
+  if(error) console.log("Can not load data");
 
 
 // range scaling of data
 x.domain(data.map(function(d) { return d.Periode; }));
-y.domain([0, d3.max(data, function(d) { return d.Faillissementen; })]);
+y.domain([0, d3.max(data, function(d) { return d.Aantal; })]);
 
 
 // d3.csv("Faillissementen_jan2018.csv", function(error, data) {
@@ -55,7 +55,7 @@ chart.append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + height + ")")
     .call(xAxis);
-    .append("text")
+    .selectAll("text")
     .attr("transform", "rotate(-90)")
     .attr("x", "-0.4em")
     .attr("dy", ".71em")
@@ -66,7 +66,7 @@ chart.append("g")
 // create y axis and label it
 chart.append("g")
     .attr("class", "y axis")
-    .attr("transform", "translate(0," + height + ")")
+   // .attr("transform", "translate(0," + height + ")")
     .call(yAxis);
     .append("text")
     .attr("transform", "rotate(-90)")
@@ -77,9 +77,12 @@ chart.append("g")
   
  
 chart.append("g")
-    .attr("class", "x axis")
-    .call(xAxis)
-    
+    .attr("class", "y axis")
+    .call(yAxis)
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 5)
+    .attr("dy", ".71em");
     
     
 // draw the chartbars 
@@ -88,9 +91,11 @@ chart.selectAll(".bar")
    .enter().append("rect")
     .attr("class", "bar")
     .attr("x", function(d) { return x(d.Periode); })
-    .attr("y", function(d) { return y(d.Faillissementen); })
-    .attr("height", function(d) { return height - y(d.Faillissementen); })
+    .attr("y", function(d) { return y(d.Aantal); })
+    .attr("height", function(d) { return height - y(d.Aantal); })
     .attr("width", x.rangeBand());
     
+})
     
-});
+    
+
