@@ -40,10 +40,10 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
-    .ticks(10, "%");
+    .ticks(0, 100, 200, 300, 400, 500);
     
-    
-d3.json(faillissementen.json, function(error, data) {
+const file_json = "faillissementen.json"
+d3.json(file_json, function(error, data) {
     console.log(data);
 
 
@@ -107,3 +107,4 @@ d3.json(faillissementen.json, function(error, data) {
         .attr("width", x.rangeBand());
     
 }) 
+
