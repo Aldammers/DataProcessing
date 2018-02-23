@@ -37,7 +37,7 @@ var yAxis = d3.svg.axis()
     
 //d3.json(Faillissementen_jan2018.json, function(error, data) {
  //   console.log(data);
-d3.csv("data/faillissement.csv", function(error, data) {
+d3.csv("data/faillissement3.csv", function(error, data) {
   if(error) console.log("Can not load data");
 
 
@@ -54,7 +54,7 @@ y.domain([0, d3.max(data, function(d) { return d.Aantal; })]);
 chart.append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);
+    .call(xAxis)
     .selectAll("text")
     .attr("transform", "rotate(-90)")
     .attr("x", "-0.4em")
@@ -67,7 +67,7 @@ chart.append("g")
 chart.append("g")
     .attr("class", "y axis")
    // .attr("transform", "translate(0," + height + ")")
-    .call(yAxis);
+    .call(yAxis)
     .append("text")
     .attr("transform", "rotate(-90)")
     .attr("y", 6)
@@ -98,4 +98,3 @@ chart.selectAll(".bar")
 })
     
     
-
