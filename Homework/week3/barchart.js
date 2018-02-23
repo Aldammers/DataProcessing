@@ -43,7 +43,7 @@ var yAxis = d3.svg.axis()
     .ticks(10, "%");
     
     
-d3.json(Faillissementen.json, function(error, data) {
+d3.json(faillissementen.json, function(error, data) {
     console.log(data);
 
 
