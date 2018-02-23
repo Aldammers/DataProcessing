@@ -1,0 +1,25 @@
+svg {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+  }
+
+.bar{
+  fill: steelblue;
+}
+
+.bar:hover{
+  fill: orange;
+}
+
+.axis {
+  font: 11px Arial;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
