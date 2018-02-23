@@ -37,7 +37,7 @@ var yAxis = d3.svg.axis()
     
 //d3.json(Faillissementen_jan2018.json, function(error, data) {
  //   console.log(data);
-d3.csv("faillissementen.csv", function(error, data) {
+d3.json("faillissementen.json", function(error, data) {
   if(error) console.log("Can not load data");
 
 
