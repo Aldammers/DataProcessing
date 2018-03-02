@@ -7,7 +7,7 @@ Script that creates a legend
 window.onload = function(){
 
     // import svg from file
-    d3.xml("test.svg", "image/svg+xml", function(error, xml) {
+    d3.xml("test_legend.svg", "image/svg+xml", function(error, xml) {
         if (error) throw error;
         document.body.appendChild(xml.documentElement);
     
