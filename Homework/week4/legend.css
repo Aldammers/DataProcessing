@@ -1,0 +1,28 @@
+/*
+Alexander Dammers
+Css script for scatterplot 
+*/
+
+
+body {
+  font: 12px sans-serif;
+}
+
+
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.dot {
+  stroke: #000;
+}
+
+.text {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
