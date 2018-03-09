@@ -1,7 +1,9 @@
-
-
-
-
+/*
+Alexander Dammers
+10528415
+Dataprogressing week 5
+Script that creates a multiple lines graph
+*/
 
 // create graph after page is loaded
 window.onload = function(){
