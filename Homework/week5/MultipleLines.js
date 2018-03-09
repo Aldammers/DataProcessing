@@ -59,7 +59,7 @@ window.onload = function(){
      
 
     // Getting the json data
-    d3.json("data_samen.json", function(error, data) {
+    d3.json("data_Russia&USA.json", function(error, data) {
         if (error) throw error;
 
     // format the data
