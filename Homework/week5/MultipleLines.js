@@ -154,19 +154,19 @@ window.onload = function(){
         
         // name graph lines
         g.append("text")
-            .attr("transform", "translate(" + ((width/2)+ 400 )+ " ," + (height + margin.top - 65) + ")")
+            .attr("transform", "translate(" + ((width/2)+ 350 )+ " ," + (height + margin.top - 65) + ")")
             .style("text-anchor", "middle")
             .text("Military expenditure")
             .style("font-weight", "bold")
             
         g.append("text")
-            .attr("transform", "translate(" + ((width/2)+ 400 )+ " ," + (height + margin.top - 170) + ")")
+            .attr("transform", "translate(" + ((width/2)+ 350 )+ " ," + (height + margin.top - 170) + ")")
             .style("text-anchor", "middle")
             .text("Exported goods of service")
             .style("font-weight", "bold")
         
         g.append("text")
-            .attr("transform", "translate(" + ((width/2)+ 400 )+ " ," + (height + margin.top - 220) + ")")
+            .attr("transform", "translate(" + ((width/2)+ 350 )+ " ," + (height + margin.top - 220) + ")")
             .style("text-anchor", "middle")
             .text("Imported goods of service")
             .style("font-weight", "bold")
