@@ -1,0 +1,34 @@
+body {
+  font: 12px Arial;
+}
+
+p {
+  margin-left: 1cm;
+}
+
+.name {
+  position: fixed;
+  bottom: 0;
+  width: 15%;
+  background-color: white;
+}
+
+.value {
+  font-size: 20;
+  opacity: 0;
+  font-family: helvetica;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
