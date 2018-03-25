@@ -1,0 +1,15 @@
+Alexander Dammers
+10528415
+Dataprogressing week 6 
+Design choices
+
+De eerste grafiek is een lijn grafiek waarin 3 lijnen de levensverachting van respectievelijk vrouwen, mannen en gezamelijk voorstellen. 
+Deze grafiek wordt via een dropdown menukeuze herladen elke keer als er een nieuwe regio gekozen word. De legenda is interatief en geeft 
+de waardes per jaar aan waarover de lijn beweegt. Ter verduidelijking is de legenda waarde de zelfde kleur als de lijn.
+
+De zwarte verticale lijn geeft het jaar aan, wanneer er op die lijn geklikt wordt laad de bar grafiek zich met de data van die periode van de 
+bevallingssterfte, baby sterfte en sterfte van kinderen jonger dan 5 jaar. De het is hier vooral interessant om de sterfte cijfers in de 
+loop der jaren te zien toe of afnemen ten opzichte van de levensverwachting van de lijn grafiek in dat jaar. 
+
+Er was helaas geen data van de bevallingssterfte, babysterfte of kinder sterfte van voor 1999. Echter heb ik expres alsnog de 
+leefdtijdsverwachtingen van de lijngrafiek vanaf 1960 laten beginnnen omdat de gehele trend van afgelopen 55 jaar zo interessant is. 
